@@ -1,0 +1,47 @@
+.inputOrValueArea {
+  display: flex;
+  width: fit-content;
+  min-width: 100px;
+  padding: 5px;
+  column-gap: 20px;
+  border: 1px solid gray;
+  border-radius: 6px;
+  justify-content: space-between;
+}
+
+.optionsContainer {
+  border: 1px solid gray;
+  border-radius: 6px;
+  width: fit-content;
+  min-width: 100px;
+  padding: 5px;
+}
+
+.option {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+}
+
+.option:hover {
+  background: rgb(234, 234, 234);
+}
+
+.selectedOptionLabel {
+  background: rgb(188, 188, 188);
+  border-radius: 6px;
+  padding: 2px 4px;
+  margin: 2px;
+}
+
+.searchInput {
+  border: none;
+}
+
+.searchInput:focus-within {
+  outline: none;
+}
+
+.multilevelOption {
+  margin-left: 10px;
+}
