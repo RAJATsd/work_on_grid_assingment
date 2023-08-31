@@ -1,18 +1,22 @@
+.selectContainer {
+  display: inline-block;
+}
+
 .inputOrValueArea {
   display: flex;
   width: fit-content;
   min-width: 100px;
   padding: 5px;
-  column-gap: 20px;
+  column-gap: 10px;
   border: 1px solid gray;
   border-radius: 6px;
   justify-content: space-between;
+  align-items: center;
 }
 
 .optionsContainer {
   border: 1px solid gray;
   border-radius: 6px;
-  width: fit-content;
   min-width: 100px;
   padding: 5px;
 }

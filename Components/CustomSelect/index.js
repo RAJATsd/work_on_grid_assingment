@@ -5,7 +5,7 @@ import Styles from "./styles.module.css";
 const CustomSelect = ({
   options,
   multiSelect,
-  inputSearch = true,
+  inputSearch,
   sortComparator,
 }) => {
   const optionsRef = useRef();
@@ -84,11 +84,14 @@ const CustomSelect = ({
   );
 
   return (
-    <span ref={optionsRef}>
+    <div className={Styles.selectContainer} ref={optionsRef}>
       <div
         className={Styles.inputOrValueArea}
         onClick={() => setOpen((prev) => !prev)}
       >
+        {(multiSelect || !inputSearch) && (
+          <div style={{ display: "flex" }}>{renderSelectValue()}</div>
+        )}
         {inputSearch && (
           <input
             type="text"
@@ -97,35 +100,16 @@ const CustomSelect = ({
             onChange={filterSearchedOptions}
           />
         )}
-
-        <div>{renderSelectValue()}</div>
-
         {open ? !inputSearch && <UpOutlined /> : <DownOutlined />}
       </div>
       {open && (
         <div className={Styles.optionsContainer}>
-          {optionsToRender?.map(
-            ({ value: optionValue, label, options: innerOptions }) =>
-              innerOptions?.length ? (
-                <div key={label}>
-                  <div style={{ color: "grey" }}>{label}</div>
-                  <div className={Styles.multilevelOption}>
-                    {innerOptions?.map(
-                      ({ value: innerOptionValue, label: innerOptionlabel }) =>
-                        renderSelectableOption({
-                          optionValue: innerOptionValue,
-                          label: innerOptionlabel,
-                        })
-                    )}
-                  </div>
-                </div>
-              ) : (
-                renderSelectableOption({ optionValue, label })
-              )
+          {optionsToRender?.map(({ value: optionValue, label }) =>
+            renderSelectableOption({ optionValue, label })
           )}
         </div>
       )}
-    </span>
+    </div>
   );
 };
 
