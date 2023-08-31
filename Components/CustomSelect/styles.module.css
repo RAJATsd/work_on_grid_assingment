@@ -1,5 +1,6 @@
 .selectContainer {
   display: inline-block;
+  position: relative;
 }
 
 .inputOrValueArea {
@@ -19,6 +20,11 @@
   border-radius: 6px;
   min-width: 100px;
   padding: 5px;
+  position: absolute;
+  top: 100;
+  background: white;
+  z-index: 100;
+  width: 100%;
 }
 
 .option {
